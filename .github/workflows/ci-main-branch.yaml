@@ -19,8 +19,8 @@ jobs:
           echo docker build
   DEV:
     runs-on: self-hosted
-    environment: build
-    needs: tests
+    environment: DEV
+    needs: build
     steps:
       - uses: actions/checkout@v4
       - run: |
