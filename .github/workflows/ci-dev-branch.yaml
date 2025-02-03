@@ -1,0 +1,12 @@
+name: DEV Branch Pipeline
+on:
+  workflow_call:
+run-name: ${{ github.sha }} | ${{ github.event.head_commit.message }}
+jobs:
+  tests:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          echo npm tests
