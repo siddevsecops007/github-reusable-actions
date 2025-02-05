@@ -16,7 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          echo docker build
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 216989125516.dkr.ecr.us-east-1.amazonaws.com
+          docker build -t 216989125516.dkr.ecr.us-east-1.amazonaws.com/roboshop-cart:${{ github.sha }} .
+          docker push 216989125516.dkr.ecr.us-east-1.amazonaws.com/roboshop-cart:${{ github.sha }}
   DEV:
     runs-on: self-hosted
     environment: DEV
