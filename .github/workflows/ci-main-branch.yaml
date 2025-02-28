@@ -32,7 +32,6 @@ jobs:
         name: Checkout Code
       - run: |
           aws eks update-kubeconfig --name dev-eks
-          LB=$(kubectl get svc -n argocd argocd-server --output json | jq '.status.loadBalancer.ingress[0].hostname'| sed -e 's/"//g')
           PASS=$(kubectl get secrets argocd-initial-admin-secret -n argocd --template={{.data.password}} | base64 -d)
           argocd login argocd-dev.siddevsecops.icu --username admin --password $PASS --insecure --skip-test-tls --grpc-web
         name: ArgoCD login
