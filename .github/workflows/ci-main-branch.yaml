@@ -20,9 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 160885263759.dkr.ecr.us-east-1.amazonaws.com
-          docker build -t 160885263759.dkr.ecr.us-east-1.amazonaws.com/roboshop-${{ inputs.componentName }}:${{ github.sha }} .
-          docker push 160885263759.dkr.ecr.us-east-1.amazonaws.com/roboshop-${{ inputs.componentName }}:${{ github.sha }}
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 981349713796.dkr.ecr.us-east-1.amazonaws.com
+          docker build -t 981349713796.dkr.ecr.us-east-1.amazonaws.com/roboshop-${{ inputs.componentName }}:${{ github.sha }} .
+          docker push 981349713796.dkr.ecr.us-east-1.amazonaws.com/roboshop-${{ inputs.componentName }}:${{ github.sha }}
   DEV:
     runs-on: self-hosted
     environment: DEV
